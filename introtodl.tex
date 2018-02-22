@@ -29,11 +29,11 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}{Table of contents}
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents[hideallsubsections]
-\end{frame}
+%
+%\begin{frame}{Table of contents}
+%  \setbeamertemplate{section in toc}[sections numbered]
+%  \tableofcontents[hideallsubsections]
+%\end{frame}
 
 \section{Machine Learning}
 
@@ -203,25 +203,29 @@
 \begin{frame}{Artifical neuron}
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
+			\onslide<2->{
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.8\linewidth]{artificial_neuron}
-			\end{figure}
+			\end{figure}}
+			\onslide<4->{
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.7\linewidth]{sigmoid}
 				\\{The sigmoid activation function $\varphi$.}
-			\end{figure}
+			\end{figure}}
 		\end{column}
 		\begin{column}{0.4\textwidth}
+			\onslide<3->{
 		    Where:
 			\begin{itemize}
 				\item $x_i$ are the inputs
 				\item $w_i$ are the weights
 				\item $\varphi$ is the activation function
 				\item $y$ is the output
-			\end{itemize}
-			The weights $w_i$ are \alert{free parameters} -> they can be \alert{trained} / \alert{learned}.
+			\end{itemize}}
+			\onslide<5->{
+			The weights $w_i$ are \alert{free parameters} -> they can be \alert{trained} / \alert{learned}.}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -313,12 +317,26 @@
 	\end{figure}}
 \end{frame}
 
+\begin{frame}{Training neural networks}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5]{gradient_descent}
+	\end{figure}
+	The \alert{backpropagation} algorithm is based on \alert{gradient descent}\onslide<2->{, i.e. the parameters are updated based on their current value and on their "influence" on the error.}
+	\onslide<3->{
+	\begin{equation*}
+		\theta_{t+1} = \theta_t - \eta \frac{\partial E}{\partial \theta_t} \,,
+	\end{equation*}
+	\small{where $\eta$ is the \alert{learning rate}.}}
+\end{frame}
+
 \begin{frame}{How to deep learn? The naive approach}
 	\onslide<2->{
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8\textwidth]{deeplearningnaive}
-	\end{figure}
+	\end{figure}}
+	\onslide<3->{
 	Just stacking more simple layers will result in a \alert{inefficient} and \alert{difficult to train} network.}
 \end{frame}
 
@@ -370,7 +388,22 @@
 	\end{figure}}
 \end{frame}
 
+\begin{frame}{The convolution operation}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1.0]{convolution_operation}		
+	\end{figure}
+	The neuron in this case is actually the \alert{kernel}. Each value in the kernel represents a \alert{weight}. Each weight is \alert{learned}. 
+\end{frame}
+
 \begin{frame}{A classification network}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{classification-network2}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Another classification network}
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{deeplearning-intro-ml}
@@ -381,9 +414,10 @@
 	\begin{itemize}
 		\item<3-> general framework
 		\item<4-> efficient structure
-		\item<5-> well performing given the right circumstances
+		\item<5-> well performing \onslide<6->{given the right circumstances}
 	\end{itemize}
 \end{frame}
+
 
 \section{Do they really use it?}
 
@@ -418,7 +452,7 @@
 \begin{frame}{Let's view some nice examples}
     \begin{itemize}
         \item \href{https://www.youtube.com/watch?v=VOC3huqHrss}{\textbf{YOLO object detection}}
-		\item Pix2Pix \href{https://affinelayer.com/pixsrv/}{\textbf{demo} and \href{https://twitter.com/search?vertical=default&q=edges2cats&src=typd}{\textbf{Twitter hashtag}}
+		\item Pix2Pix \href{https://affinelayer.com/pixsrv/}{\textbf{demo}} and \href{https://twitter.com/search?vertical=default&q=edges2cats&src=typd}{\textbf{Twitter hashtag}}
 		\item \href{https://www.youtube.com/watch?v=3AIpPlzM_qs}{\textbf{Pix2PixHD}} 
 		\item \href{https://www.youtube.com/watch?v=ys5nMO4Q0iY}{\textbf{Automatic image colorization}}
 		\item \href{https://www.youtube.com/watch?time_continue=22&v=pW6nZXeWlGM}{\textbf{Pose estimation}}
@@ -427,6 +461,9 @@
 		\item \href{https://youtu.be/ZhsEKTo7V04?t=18s}{\textbf{Robotic manipulation}}
     \end{itemize}
 \end{frame}
+
+\section{Deep learning and me}
+
 \begin{frame}{Is deep learning right for you?}
 You should consider deep learning if:
 \begin{itemize}
@@ -468,6 +505,7 @@ You should consider deep learning if:
 	Questions?\\
 	\vspace{1.5cm}
 	\small{Slides can be found at \url{www.github.com/pauldragan}.}
+	\\
 	\small{You can also find me on Twitter \href{www.twitter.com/pauldragannow}{\textbf{@PaulDraganNow}}}
 \end{frame}
 
